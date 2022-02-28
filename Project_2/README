@@ -1,0 +1,80 @@
+PUIU SEBASTIAN-ANDREI 
+	324CD
+
+ETAPA_1:
+
+	Pentru inceput, pentru a putea face codul cat mai clar si putin complicat,
+in clasa 'Main', am folosit doar metode ce implementeaza functionalitatile
+necesare pentru buna desfasurare a simularii. Pentru a ma putea folosi de 
+informatiile din fisierele de intrare, a fost mai intai nevoie sa realizez
+o citire si o adaugare a datelor in obiectul 'input'. In cadrul acestei citiri, 
+am folosit si cele doua design patterns ce au fost cerute in enuntul temei 
+Factory (o fabrica de persoane ce returneaza obiecte de tip cosumator sau 
+distribuitor, in functie de ce ii este cerut) si Singleton (cand am creat 
+instanta pentru fabrica de persoane). 
+	In runda initiala, mai intai am stabilit care este cel mai bun pret posibil 
+si cine e distribuitorul care il ofera. Imediat dupa, toti consumatorii au 
+semnat contractele cu acesta. Apoi, am actualizat atat bugetele tuturor 
+consumatorilor, cat si pe cele ale distribuitorilor, m-am asigurat ca nu 
+exista contracte ce au legatura cu persoanele declarate falimentare si am 
+actualizat numarul de luni pentru contractele existente.
+	In continuare, am dat start simularii: se executa fiecare runda pana la
+atingerea numarului dorit, iar in cadrul fiecare runde se executa toate 
+instructiunile pe care le voi enumera in cele ce urmeaza.
+	La inceputul fiecarei runde introduc schimbarile din luna aferenta (adica 
+adaug noii consumatori in lista si schimb costurile distribuitorilor), daca 
+acestea, bineinteles, exista. Mai apoi, organizez un concurs pentru a selecta 
+cel mai bun pret al unui contract si distribuitorul care il ofera.
+	Urmatorul pas este sa elimin toate contractele ce au expirat. Dupa ce este 
+realizata aceasta actiune, toti consumatorii ce nu au contract si nu sunt 
+falimentari vor semna cate un contract cu cel mai bun distribuitor al lunii
+curent (cum am mentionat si mai sus, adica distribuitorul ce ofera cel mai 
+bun pret al contractului).
+	In continuare, voi actualiza atat bugetele consumatorilor, cat si pe cele 
+ale distribuitorilor. In urma acestor actualizari, consumatorii isi vor primi 
+salariile si isi vor plati facturile aferente contractului semnat, iar 
+distribuitorii vor incasa aceste plati, dar si ei la randul lor vor avea de 
+facut cheltuieli pentru infrastructura si productie. De asemenea, ambele tipuri 
+de persoane pot da faliment. Insa, consumatorul are o a doua sansa, ce face 
+referire la urmatorul fapt: daca nu poate plati factura pe luna curenta, va 
+ramane cu o datorie ce va trebuie achitata in mod obligatoriu in urmatoarea 
+luna. Abia in momentul acela, daca nu poate sa plateasca, va da faliment. In 
+caz contrar, isi va plati facturile si isi va primi inapoi dreptul la a doua
+sansa.
+	Dupa actualizarea bugetelor fiecaruia, verific daca exista vreun consumator
+sau distribuitor care, in cele din urma, a dat faliment. In cazul falimentului, 
+ma asigur ca acel consumator/distribuitor va fi declarat falimentar si vor fi 
+sterse contractele, ce practic nu mai pot exista in aceste conditii.
+	La sfarsitul fiecarei runde, actualizez toate contractele existente (adica 
+scad luna precedenta din numarul lunilor ramase).
+	Dupa ce au fost realizate toate rundele, simularea se poate incheia prin 
+afisarea starilor in care au ajuns sa se afle distribuitorii si consumatorii 
+(indiferent daca acestia au participat inca de la runda initiala sau nu).
+
+ETAPA_2:
+
+	In cadrul acestei etape, i-am adaugat in mecanismul simularii si pe 
+producatori. Din acest motiv, clasele ce se ocupa cu citirea datelor, scrierea 
+rezultatelor si cele care au in vedere update-urile lunare pentru distribuitori 
+au suferit anumite modificari.
+	In plus fata de prima etapa, in runda initiala mai exista o metoda prin 
+care fiecarui distributor ii sunt atribuiti producatorii disponibili, in functie 
+de cerintele impuse de acestia. Aceasta metoda se aplica si timpul simularii, 
+dupa actualizarea producatorilor, insa de aceasta data doar anumiti distribuitori 
+isi vor putea selecta noi producatori. Acesti distribuitori vor fi desemnati prin 
+intermediul update-urilor primite lunar de fiecare producator, ce vor fi realizate 
+tot printr-o metoda nou introdusa, ce se executa imediat dupa calcularea bugetelor 
+tuturor participantilor la simulare. Astfel, de fiecare data cand un distribuitor 
+se intampla sa fie "abonat" la un producator care si-a schimbat cantitatea de 
+energie oferita, el va fi afectat de acest update. Prin urmare, doar acelor 
+distribuitori care sunt afectati, ei fiind notificati in fiecare luna de un 
+observator, le vor fi reatribuiti producatori. Pentru a le putea fi respectate 
+cerintele, fiecarui distribuitor i sa va aplica o anumita strategie atunci 
+cand isi alege producatorii. Strategia "Green" prioritizeaza producatorii ce 
+folosesc energie regenerabila, apoi pe cei care au pretul cel mai mic, iar in 
+final pe cei care ofera cea mai multa cantitate de energie. Strategia "Price" 
+prioritizeaza producatorii in functie de pretul cel mai mic, iar apoi pe cei 
+cu cea mai multa energie. Strategia "Quantity" prioritizeaza producatorii 
+doar in functie de cantitatea de energie distribuita si de ordinea lor.
+	In final, avand in vedere toate cele explicate in randurile de mai sus, 
+simularea se desfasoara cu succes.
