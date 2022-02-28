@@ -1,0 +1,50 @@
+Puiu_Sebastian_Andrei_324CD
+	Project: VideosDB
+
+		In aceasta tema, am realizat mai multe implementari, pe care le-am 
+	grupat in 3 (pachete) categorii: "commands", "querys" si "recommendations". 
+	In clasa "Main" am impartit aceste trei mari categorii in mai multe 
+	subcategorii, pentru a satisface toate tipurile de actiune ce puteau fi 
+	cerute in cadrul unei comenzi. Rezultatele intoarse de fiecare metoda in 
+	parte le-am stocat in vectorul "arrayResult".
+
+		Rezolvarea fiecarei cerinte am implementat-o in cadrul clasei al carei 
+	nume corespunde cu aceasta. Fiecare metoda implementata are un javadoc in 
+	care am explicat in detaliu functionalitatea ei. Acestea returneaza un 
+	obiect de tip JSON, pe care l-am denumit "result", si care contine 
+	raspunsul obtinut in urma operatiilor efectuate. (toate modificarile 
+	facute ramanand salvate)
+
+		Pentru a tine evidenta filmelor/serialelor la care un user a dat 
+	rating, am adaugat noi campuri in clasa "UserInputData". Astfel, am putut 
+	retine numele ficarui video caruia i-a acordat un anumit rating si am putut 
+	evita situatiile in care userul ar fi dorit sa acorde inca o nota pentru 
+	acelasi film/serial.
+
+		Pentru a-mi usura munca, mi-am creat cateva metode auxiliare, pe care 
+	le-am inclus in clasa "Utils". Mentionez faptul ca le-am inclus in aceasta 
+	clasa deoarece daca faceau parte din alta clasa/pachet, checkstyle-ul imi 
+	crestea numarul de erori returnate dupa rularea programului. Aceste metode 
+	au fost folosite in marea majoritatea a celelorlate clase, pentru a evita 
+	codul duplicat si a micsora cantitatea de cod. Ele joaca urmatoarele 
+	roluri: sortarea crescatorea/descrescatoare a unui hashmap ("sortAsc",
+	"sortDesc" si "sortDescByValue"), verificarea daca un video respecta 
+	criteriile mentionate in filtrul dat in comanda ("filter"), calcularea 
+	ratingului unui film/serial("movieRating" si "serialRating") si prelucrarea 
+	unui  hashmap in functie de criteriul de sortare si numarul de elemente 
+	dorite din el ("processing"). Mentionez faptul ca primele doua metode de 
+	sortare compara dupa doua criterii, primul fiind valoarea, iar cel de-al 
+	doilea cheia, in aceasta ordine. Acestea functioneaza cu ajutorul metodei
+	"Collections.sort". Pentru a putea sa o utilizez fara probleme, a fost
+	nevoie ca datele din hashmap sa le introduc intr-o lista, iar dupa ce
+	acestea au fost prelucrate cu succes, le-am reintrodus intr-un nou hashmap. 
+	De asemenea, atat aici, cat si in alte metode, am folosit tipul de date
+	"LinkedHashMap" pentru a putea pastra ordinea in care am adaugat noile
+	chei si valori.
+	
+
+		Tema a fost foarte interesanta si consider ca a ajutat consistent
+	la familiarizarea mea cu OOP si IntelliJ (deci si cu limbajul Java), insa 
+	mi-ar fi placut daca cerintele ar fi fost putin mai detaliate. Chiar si 
+	asa, exista si o parte buna in acest aspect, si anume ca m-a incurajat sa 
+	folosesc mai mult forumul temei.
